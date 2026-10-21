@@ -14,14 +14,14 @@ type Project = {
 const projects: Project[] = [
   {
     name: "Personal Cloud Storage",
-    problem: "My own storage for files and photos, reachable securely from every device.",
+    problem: "Self-hosted storage for my files and photos across devices.",
     built:
       "A full-stack system: a custom Node.js REST API, a SwiftUI frontend, and a backend photo pipeline for compression, optimization and metadata extraction. Multi-device networking is secured with Tailscale.",
     stack: ["Node.js", "SwiftUI", "Tailscale"],
   },
   {
     name: "All Abroad",
-    problem: "Travelers in European cities had no simple, anonymous way to talk to each other.",
+    problem: "An anonymous way for travelers in European cities to connect.",
     built:
       "An anonymous social platform for travelers, built in SwiftUI with Firebase authentication and cloud functions.",
     stack: ["SwiftUI", "Firebase"],

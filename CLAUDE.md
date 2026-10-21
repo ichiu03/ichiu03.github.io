@@ -6,7 +6,7 @@ Ivan Chiu's personal site, aimed at recruiters and hiring managers. The full pic
 ## Stack
 - Next.js 15 (App Router), React 19, TypeScript
 - Tailwind CSS 4 (configured in CSS via `@theme`, PostCSS plugin `@tailwindcss/postcss`)
-- Deployed as a static export to GitHub Pages (planned; not set up yet)
+- Deployed as a static export to GitHub Pages (`ichiu03/ichiu03.github.io`) on every push to `main`
 
 ## Commands
 - Install: `npm install`

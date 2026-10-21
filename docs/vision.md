@@ -15,7 +15,7 @@ to real users, I build across the whole stack and into AI, and how to reach me.
 - Contact is an email button plus GitHub (github.com/ichiu03) and LinkedIn
   (linkedin.com/in/ivan-chiu-32b87527b) links. No form, no backend.
 - It feels like me and is memorable, not a template.
-- It's live on GitHub Pages at `<username>.github.io`.
+- It's live on GitHub Pages at https://ichiu03.github.io.
 
 ## Goals
 - Redesign around the theme below.
@@ -46,7 +46,7 @@ to real users, I build across the whole stack and into AI, and how to reach me.
 ## Decisions
 - 2026-10-20: Audience is recruiters and hiring managers. The resume is the source of truth for
   content.
-- 2026-10-20: Hosting on GitHub Pages; the repo will be named `<username>.github.io`.
+- 2026-10-20: Hosting on GitHub Pages; the repo is `ichiu03/ichiu03.github.io`.
 - 2026-10-20: VT323 for headings and a readable sans for body, not VT323 everywhere.
 - 2026-10-20: Theme is dark ink/indigo, sakura + vermilion accents, pixel petals, no characters.
 - 2026-10-20: No resume PDF (it has my phone number); the site carries all the content.

@@ -58,7 +58,7 @@ const skillGroups: { label: string; items: string[] }[] = [
 // Spoken languages carry a proficiency level, shown after the name.
 const spoken: { name: string; level: string }[] = [
   { name: "English", level: "native" },
-  { name: "Chinese", level: "native/conversational" },
+  { name: "Chinese", level: "native" },
   { name: "Spanish", level: "conversational" },
   { name: "Italian", level: "conversational" },
 ];
@@ -101,7 +101,7 @@ export default function Skills() {
             <h3 className="m-0 font-pixel text-[34px] leading-none font-normal">
               Boston College
               <span className="mt-2.5 block font-sans text-[15px] leading-snug font-medium tracking-[0.01em] text-washi/90">
-                B.A./B.S. in Computer Science
+                B.S. in Computer Science
               </span>
             </h3>
             <p className="m-0 font-pixel text-[21px] leading-tight text-mist sm:text-right">
