@@ -51,3 +51,6 @@ to real users, I build across the whole stack and into AI, and how to reach me.
 - 2026-10-20: Theme is dark ink/indigo, sakura + vermilion accents, pixel petals, no characters.
 - 2026-10-20: No resume PDF (it has my phone number); the site carries all the content.
 - 2026-10-20: Voice is friendly-professional. The old casual site was stashed, not kept.
+- 2026-10-20: Design is mockup C ("restrained ink", `docs/design/mockup-c-ink.html`) as the base,
+  plus a small pixel moon and torii from mockup A in the hero. A and B are kept for reference only.
+- 2026-10-20: Experience is listed newest first; standout numbers get highlighted instead.

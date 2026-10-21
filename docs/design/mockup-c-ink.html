@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ivan Chiu · Restrained Ink</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* ---- Palette: "Restrained ink" ---- */
+  --ink:        #0b0d17; /* Sumi ink: page background */
+  --ink-raised: #121527; /* Night indigo: raised surfaces, chips */
+  --line:       #262b4a; /* Indigo hairline: dividers, borders */
+  --washi:      #ece6da; /* Washi paper: primary text (15.6:1 on ink) */
+  --mist:       #a3a7bf; /* Evening mist: secondary text (7.9:1 on ink) */
+  --sakura:     #f2a7bd; /* Sakura: accent text, blossoms (9.6:1 on ink) */
+  --sakura-lt:  #fbd3de; /* Sakura light: blossom highlights */
+  --sakura-dk:  #c96c87; /* Sakura shade: blossom shadow pixels, petals */
+  --vermilion:  #e2452f; /* Torii vermilion: hanko seal, tiny accents (4.7:1 on ink) */
+  --bark:       #2e2230; /* Bark: branch body */
+  --bark-lt:    #4d3746; /* Bark light: branch top edge */
+
+  --font-pixel: "VT323", ui-monospace, monospace;
+  --font-body:  "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --max: 1080px;
+  --gutter: clamp(16px, 5vw, 56px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--washi);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--sakura); outline-offset: 3px; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: relative; z-index: 5;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding-top: 28px; padding-bottom: 28px;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-pixel); font-size: 26px; letter-spacing: .04em;
+  text-decoration: none; line-height: 1;
+}
+.nav ul {
+  display: flex; gap: clamp(14px, 3vw, 32px);
+  list-style: none; margin: 0; padding: 0;
+  font-family: var(--font-pixel); font-size: 22px; line-height: 1;
+}
+.nav ul a { text-decoration: none; color: var(--mist); transition: color .15s; }
+.nav ul a:hover, .nav ul a[aria-current] { color: var(--washi); }
+.nav ul a[aria-current]::before { content: "\25B8 "; color: var(--vermilion); }
+
+/* Hanko seal */
+.seal {
+  display: inline-grid; place-items: center;
+  width: 30px; height: 30px; flex: none;
+  background: var(--vermilion); color: var(--ink);
+  font-family: var(--font-pixel); font-size: 17px; line-height: .8;
+  text-align: center;
+  /* pixel-chipped corners like a worn stamp */
+  clip-path: polygon(3px 0, calc(100% - 3px) 0, 100% 3px, 100% calc(100% - 3px), calc(100% - 3px) 100%, 3px 100%, 0 calc(100% - 3px), 0 3px);
+}
+.seal span { display: block; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: min(92vh, 860px);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.branch {
+  position: absolute; top: 0; right: 0; z-index: 1;
+  width: min(760px, 68vw); height: auto;
+  image-rendering: pixelated; shape-rendering: crispEdges;
+  pointer-events: none;
+}
+.petals { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.petal {
+  position: absolute; top: -12px; width: 8px; height: 6px;
+  opacity: .9;
+  animation: fall linear infinite;
+}
+.petal svg { display: block; width: 100%; height: 100%; shape-rendering: crispEdges; }
+@keyframes fall {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  8%   { opacity: .9; }
+  50%  { transform: translate(var(--drift), 46vh) rotate(180deg); }
+  92%  { opacity: .8; }
+  100% { transform: translate(calc(var(--drift) * -0.4), 92vh) rotate(360deg); opacity: 0; }
+}
+
+.hero-body {
+  position: relative; z-index: 3;
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
+  padding-top: clamp(120px, 18vh, 200px); padding-bottom: 96px;
+}
+.eyebrow {
+  font-family: var(--font-pixel); font-size: 22px; color: var(--sakura);
+  letter-spacing: .08em; margin: 0 0 18px;
+}
+.eyebrow::before { content: ""; display: inline-block; width: 28px; height: 2px; background: var(--vermilion); vertical-align: middle; margin-right: 12px; }
+h1 {
+  font-family: var(--font-pixel); font-weight: 400;
+  font-size: clamp(56px, 11vw, 132px); line-height: .9;
+  letter-spacing: .01em; margin: 0;
+  max-width: 9.5ch;
+}
+h1 .dot { color: var(--vermilion); }
+.sub {
+  max-width: 34rem; margin: 28px 0 0;
+  font-size: clamp(17px, 2vw, 19px); color: var(--mist);
+}
+.sub strong { color: var(--washi); font-weight: 500; }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-pixel); font-size: 24px; line-height: 1;
+  padding: 13px 22px 12px; text-decoration: none;
+  border: 2px solid var(--washi);
+  transition: background .15s, color .15s, border-color .15s;
+}
+.btn-primary { background: var(--washi); color: var(--ink); }
+.btn-primary:hover { background: var(--sakura); border-color: var(--sakura); }
+.btn-ghost { color: var(--washi); border-color: var(--line); }
+.btn-ghost:hover { border-color: var(--sakura); color: var(--sakura); }
+.btn .arrow { font-size: 20px; }
+
+.scroll-cue {
+  position: relative; z-index: 3;
+  display: flex; align-items: center; gap: 12px;
+  padding-bottom: 32px;
+  font-family: var(--font-pixel); font-size: 18px; color: var(--mist); letter-spacing: .1em;
+}
+.scroll-cue::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+/* ---------- Section ---------- */
+section.block { padding: 112px 0 128px; border-top: 1px solid var(--line); }
+.section-head {
+  display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px;
+  margin-bottom: 56px;
+}
+.section-head h2 {
+  font-family: var(--font-pixel); font-weight: 400;
+  font-size: clamp(44px, 7vw, 72px); line-height: .9; margin: 0;
+}
+.section-head .num { display: block; font-size: 22px; color: var(--sakura); letter-spacing: .1em; margin-bottom: 10px; }
+.kanji {
+  writing-mode: vertical-rl; font-size: 15px; letter-spacing: .5em;
+  color: var(--mist); opacity: .75; margin: 0;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
+.jobs { list-style: none; margin: 0; padding: 0; }
+.job {
+  display: grid; grid-template-columns: 200px 1fr; gap: 40px;
+  padding: 36px 0; border-top: 1px solid var(--line);
+}
+.job:last-child { border-bottom: 1px solid var(--line); }
+.when {
+  font-family: var(--font-pixel); font-size: 21px; line-height: 1.2; color: var(--mist);
+  margin: 0;
+}
+.when .place { display: block; color: var(--mist); opacity: .9; margin-top: 4px; }
+.job h3 {
+  margin: 0; font-family: var(--font-pixel); font-weight: 400;
+  font-size: 34px; line-height: 1;
+}
+.job h3 .role { display: block; font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--sakura); letter-spacing: .01em; margin-top: 10px; }
+.job p { margin: 14px 0 0; max-width: 40rem; color: var(--washi); opacity: .92; }
+.job .metric { color: var(--washi); font-weight: 600; box-shadow: inset 0 -2px 0 rgba(226, 69, 47, .7); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 18px 0 0; padding: 0; }
+.tags li {
+  font-family: var(--font-pixel); font-size: 18px; line-height: 1;
+  padding: 6px 10px 5px; background: var(--ink-raised); border: 1px solid var(--line); color: var(--mist);
+}
+.job:hover h3 { color: var(--sakura-lt); }
+
+footer.end {
+  padding: 40px 0 56px; display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-pixel); font-size: 18px; color: var(--mist);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  .nav ul { display: none; }
+  .nav .menu { display: inline-block; }
+  .branch { width: 118vw; right: -22vw; opacity: .7; }
+  .hero-body { padding-top: 46vw; }
+  .job { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
+  .when .place { display: inline; margin: 0 0 0 10px; }
+  .when .place::before { content: "· "; }
+  .section-head { margin-bottom: 36px; }
+  section.block { padding: 80px 0 96px; }
+}
+.menu {
+  display: none; font-family: var(--font-pixel); font-size: 22px; color: var(--washi);
+  background: none; border: 1px solid var(--line); padding: 6px 12px 4px; cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .petal { animation: none !important; opacity: .75; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <!-- Pixel-art sakura branch, drawn into this SVG by the script below -->
+  <svg class="branch" id="branch" aria-hidden="true" focusable="false"></svg>
+  <div class="petals" id="petals" aria-hidden="true"></div>
+
+  <nav class="nav wrap" aria-label="Primary">
+    <a class="brand" href="#top">
+      <span class="seal" aria-hidden="true"><span>I<br>C</span></span>
+      Ivan Chiu
+    </a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="menu" type="button" aria-label="Open menu">Menu</button>
+  </nav>
+
+  <div class="hero-body wrap">
+    <p class="eyebrow">Software engineer</p>
+    <h1>Hey, I'm Ivan Chiu<span class="dot">.</span></h1>
+    <p class="sub">Software engineer, <strong>Boston College CS '26</strong>. I build fullstack products and AI pipelines.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#experience">See my work <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue wrap" aria-hidden="true">SCROLL</div>
+</header>
+
+<main>
+  <section class="block" id="experience" aria-labelledby="exp-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="exp-title"><span class="num">01 /</span>Experience</h2>
+        <p class="kanji" aria-hidden="true">経歴</p>
+      </div>
+
+      <ol class="jobs">
+        <li class="job">
+          <p class="when">Dec 2025 – Mar 2026<span class="place">Remote</span></p>
+          <div>
+            <h3>Claritas<span class="role">Fullstack Software Engineer</span></h3>
+            <p>Built React + TypeScript web and mobile apps with automated round-up donations for Catholic parishes, backed by Node.js APIs on Prisma and Supabase Postgres, shipped in Docker.</p>
+            <ul class="tags" aria-label="Stack">
+              <li>React</li><li>TypeScript</li><li>Node.js</li><li>Prisma</li><li>Supabase</li><li>Docker</li>
+            </ul>
+          </div>
+        </li>
+        <li class="job">
+          <p class="when">Jun – Aug 2025<span class="place">Boston</span></p>
+          <div>
+            <h3>Fidelity Investments<span class="role">Software Engineering Intern</span></h3>
+            <p>Led the "Saved Orders" feature serving <span class="metric">10M+ users</span>, built in Kotlin and Java with Clean Architecture and MVVM over GraphQL and REST.</p>
+            <ul class="tags" aria-label="Stack">
+              <li>Kotlin</li><li>Java</li><li>MVVM</li><li>GraphQL</li><li>REST</li>
+            </ul>
+          </div>
+        </li>
+        <li class="job">
+          <p class="when">Oct 2024 – May 2025<span class="place">Remote</span></p>
+          <div>
+            <h3>Decodables<span class="role">Fullstack Software Engineer</span></h3>
+            <p>Built an agentic GPT-4 pipeline that writes dyslexia-tailored stories, scores their decodability and self-corrects until they pass a <span class="metric">92% threshold</span>, plus an NLP rules engine over a 10,000+ word corpus. FastAPI + Firebase. Closed a <span class="metric">$20K code sale</span>.</p>
+            <ul class="tags" aria-label="Stack">
+              <li>GPT-4</li><li>Python</li><li>FastAPI</li><li>Firebase</li><li>NLP</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer class="end wrap">
+  <span class="seal" aria-hidden="true"><span>I<br>C</span></span>
+  Mockup C · Restrained ink
+</footer>
+
+<script>
+(function () {
+  /* ---------- Pixel sakura branch (rasterized onto a grid) ---------- */
+  var W = 96, H = 58, S = 8;           // grid cols, rows, px per cell
+  var svg = document.getElementById('branch');
+  svg.setAttribute('viewBox', '0 0 ' + W * S + ' ' + H * S);
+  var css = getComputedStyle(document.documentElement);
+  var C = function (n) { return css.getPropertyValue(n).trim(); };
+
+  var seed = 7;
+  var rnd = function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+
+  var grid = {};                         // "x,y" -> color
+  var bark = {};
+  function set(x, y, c, g) { if (x >= 0 && y >= 0 && x < W && y < H) (g || grid)[x + ',' + y] = c; }
+
+  // branch segments: [x1,y1,x2,y2,r1,r2]  (enters from the right edge)
+  var segs = [
+    [98, 4, 80, 9, 2.6, 2.1],
+    [80, 9, 64, 13, 2.1, 1.6],
+    [64, 13, 50, 20, 1.6, 1.2],
+    [50, 20, 38, 23, 1.2, 0.8],
+    [38, 23, 28, 22, 0.8, 0.5],
+    [80, 9, 74, 2, 1.2, 0.6],
+    [64, 13, 58, 29, 1.1, 0.6],
+    [58, 29, 54, 37, 0.6, 0.4],
+    [50, 20, 44, 13, 0.8, 0.5],
+    [72, 11, 70, 22, 0.9, 0.5],
+    [88, 7, 86, 16, 0.8, 0.4]
+  ];
+  segs.forEach(function (s) {
+    var len = Math.hypot(s[2] - s[0], s[3] - s[1]), steps = Math.ceil(len * 3);
+    for (var i = 0; i <= steps; i++) {
+      var t = i / steps, x = s[0] + (s[2] - s[0]) * t, y = s[1] + (s[3] - s[1]) * t;
+      // slight organic wobble
+      y += Math.sin(t * 6 + s[0]) * 0.5;
+      var r = s[4] + (s[5] - s[4]) * t;
+      for (var dx = -3; dx <= 3; dx++) for (var dy = -3; dy <= 3; dy++)
+        if (dx * dx + dy * dy <= r * r) bark[Math.round(x + dx) + ',' + Math.round(y + dy)] = 1;
+    }
+  });
+  Object.keys(bark).forEach(function (k) {
+    var p = k.split(','), x = +p[0], y = +p[1];
+    set(x, y, bark[x + ',' + (y - 1)] ? C('--bark') : C('--bark-lt'));
+  });
+
+  // blossoms: 5x5 pixel flower
+  var flower = ['..p..', '.pLp.', 'pLcLp', '.pdp.', '..d..'];
+  function bloom(cx, cy) {
+    for (var y = 0; y < 5; y++) for (var x = 0; x < 5; x++) {
+      var ch = flower[y][x]; if (ch === '.') continue;
+      var col = ch === 'p' ? C('--sakura') : ch === 'L' ? C('--sakura-lt') : ch === 'c' ? C('--vermilion') : C('--sakura-dk');
+      set(cx + x - 2, cy + y - 2, col);
+    }
+  }
+  var spots = [
+    [76, 4], [82, 13], [71, 16], [66, 9], [60, 18], [57, 24], [53, 34], [47, 15], [44, 22],
+    [36, 20], [30, 25], [27, 19], [69, 24], [86, 18], [90, 10], [73, 0], [62, 28], [41, 26]
+  ];
+  spots.forEach(function (p) { bloom(p[0] + Math.round(rnd() * 2 - 1), p[1] + Math.round(rnd() * 2 - 1)); });
+  // buds and stray pixels
+  for (var i = 0; i < 26; i++) {
+    var sp = spots[Math.floor(rnd() * spots.length)];
+    set(sp[0] + Math.round(rnd() * 8 - 4), sp[1] + Math.round(rnd() * 8 - 4), rnd() > .5 ? C('--sakura') : C('--sakura-dk'));
+  }
+
+  var ns = 'http://www.w3.org/2000/svg', frag = document.createDocumentFragment();
+  Object.keys(grid).forEach(function (k) {
+    var p = k.split(','), r = document.createElementNS(ns, 'rect');
+    r.setAttribute('x', p[0] * S); r.setAttribute('y', p[1] * S);
+    r.setAttribute('width', S); r.setAttribute('height', S);
+    r.setAttribute('fill', grid[k]);
+    frag.appendChild(r);
+  });
+  svg.appendChild(frag);
+
+  /* ---------- Falling pixel petals ---------- */
+  var box = document.getElementById('petals');
+  var petalSVG = '<svg viewBox="0 0 4 3"><rect x="1" y="0" width="2" height="1" fill="' + C('--sakura-lt') + '"/>' +
+    '<rect x="0" y="1" width="4" height="1" fill="' + C('--sakura') + '"/>' +
+    '<rect x="1" y="2" width="2" height="1" fill="' + C('--sakura-dk') + '"/></svg>';
+  var N = 11;
+  for (var j = 0; j < N; j++) {
+    var el = document.createElement('div');
+    el.className = 'petal';
+    el.innerHTML = petalSVG;
+    var size = 6 + Math.round(rnd() * 6);
+    el.style.width = size + 'px'; el.style.height = Math.round(size * .75) + 'px';
+    el.style.left = (38 + rnd() * 60) + '%';          // biased toward the branch side
+    el.style.top = (rnd() * 70) + '%';                 // static scatter if motion is reduced
+    el.style.setProperty('--drift', (-60 - rnd() * 120) + 'px');
+    el.style.animationDuration = (11 + rnd() * 9) + 's';
+    el.style.animationDelay = (-rnd() * 18) + 's';
+    box.appendChild(el);
+  }
+  // With motion allowed, petals start from the top; with reduced motion they stay scattered and still.
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    Array.prototype.forEach.call(box.children, function (p) { p.style.top = '-12px'; });
+  }
+})();
+</script>
+</body>
+</html>
