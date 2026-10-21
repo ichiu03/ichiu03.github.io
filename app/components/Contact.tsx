@@ -66,7 +66,7 @@ export default function Contact() {
           </h2>
           <p
             aria-hidden="true"
-            className="m-0 font-serif text-[15px] tracking-[0.5em] text-mist opacity-75 [writing-mode:vertical-rl]"
+            className="m-0 [font-family:'Hiragino_Mincho_ProN','Yu_Mincho',serif] text-[15px] tracking-[0.5em] text-mist opacity-75 [writing-mode:vertical-rl]"
           >
             連絡
           </p>

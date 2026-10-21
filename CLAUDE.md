@@ -13,8 +13,8 @@ Ivan Chiu's personal site, aimed at recruiters and hiring managers. The full pic
 - Run: `npm run dev` (http://localhost:3000)
 - Build: `npm run build`
 - Lint: `npm run lint`
-- Test: none yet. Until there is a suite, "evidence" means a clean `npm run build` and
-  `npm run lint`, plus a screenshot of the affected section.
+- Test: `npm run build && npm test` (smoke checks in `scripts/smoke.mjs` against `out/`).
+  "Evidence" means build, lint and smoke checks pass, plus a screenshot of the affected section.
 
 ## Conventions
 - Single page: `app/page.tsx` assembles sections; each section is its own component in

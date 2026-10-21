@@ -27,7 +27,7 @@ export default function Hero() {
           Hey, I&apos;m Ivan Chiu<span className="text-vermilion">.</span>
         </h1>
         <p className="mt-7 max-w-[34rem] text-[clamp(17px,2vw,19px)] text-mist">
-          Software engineer, <strong className="font-medium text-washi">Boston College CS &apos;26</strong>. I
+          <strong className="font-medium text-washi">Boston College CS &apos;26</strong>. I
           build fullstack products and AI pipelines.
         </p>
         <div className="mt-10 flex flex-wrap gap-3.5">

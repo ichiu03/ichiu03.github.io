@@ -66,7 +66,7 @@ export default function Nav() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className={`text-mist transition-colors [text-shadow:0_0_6px_var(--color-ink)] hover:text-washi ${FOCUS}`}
+                className={`bg-ink/75 px-1.5 py-1 text-mist transition-colors hover:text-washi ${FOCUS}`}
               >
                 {link.label}
               </a>

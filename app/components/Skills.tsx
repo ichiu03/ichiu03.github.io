@@ -86,7 +86,7 @@ export default function Skills() {
           </h2>
           <p
             aria-hidden="true"
-            className="m-0 font-serif text-[15px] tracking-[0.5em] text-mist opacity-75 [writing-mode:vertical-rl]"
+            className="m-0 [font-family:'Hiragino_Mincho_ProN','Yu_Mincho',serif] text-[15px] tracking-[0.5em] text-mist opacity-75 [writing-mode:vertical-rl]"
           >
             技能
           </p>
@@ -107,7 +107,7 @@ export default function Skills() {
             <p className="m-0 font-pixel text-[21px] leading-tight text-mist sm:text-right">
               May 2026
               <span className="ml-2.5 text-washi sm:ml-0 sm:block">
-                <span className="text-mist sm:hidden">· </span>GPA 3.65
+                <span className="text-mist sm:hidden">· </span>GPA 3.652
               </span>
             </p>
           </div>
