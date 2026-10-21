@@ -11,8 +11,9 @@ to real users, I build across the whole stack and into AI, and how to reach me.
 - Experience and projects read as short stories: the problem, what I built, the result. Lead
   with the strongest: Fidelity's "Saved Orders" (10M+ users), the agentic LLM pipeline at
   Decodables, and the Claritas fullstack work.
-- My resume is one click away.
-- Contact works: a mailto link or a free hosted form service, never a backend.
+- Everything on my resume is on the site itself; there's no downloadable PDF.
+- Contact is an email button plus GitHub (github.com/ichiu03) and LinkedIn
+  (linkedin.com/in/ivan-chiu-32b87527b) links. No form, no backend.
 - It feels like me and is memorable, not a template.
 - It's live on GitHub Pages at `<username>.github.io`.
 
@@ -48,3 +49,5 @@ to real users, I build across the whole stack and into AI, and how to reach me.
 - 2026-10-20: Hosting on GitHub Pages; the repo will be named `<username>.github.io`.
 - 2026-10-20: VT323 for headings and a readable sans for body, not VT323 everywhere.
 - 2026-10-20: Theme is dark ink/indigo, sakura + vermilion accents, pixel petals, no characters.
+- 2026-10-20: No resume PDF (it has my phone number); the site carries all the content.
+- 2026-10-20: Voice is friendly-professional. The old casual site was stashed, not kept.

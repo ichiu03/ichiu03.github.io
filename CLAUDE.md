@@ -4,8 +4,8 @@ Ivan Chiu's personal site, aimed at recruiters and hiring managers. The full pic
 `docs/vision.md`.
 
 ## Stack
-- Next.js 14 (App Router), React 18, TypeScript
-- Tailwind CSS 3, Headless UI, Heroicons
+- Next.js 15 (App Router), React 19, TypeScript
+- Tailwind CSS 4 (configured in CSS via `@theme`, PostCSS plugin `@tailwindcss/postcss`)
 - Deployed as a static export to GitHub Pages (planned; not set up yet)
 
 ## Commands
@@ -17,10 +17,10 @@ Ivan Chiu's personal site, aimed at recruiters and hiring managers. The full pic
   `npm run lint`, plus a screenshot of the affected section.
 
 ## Conventions
-- Single page today: everything is in `app/page.tsx` (Hero, About, Projects, Skills, Contact).
-  Split into components under `app/components/` as sections grow.
-- Styling uses Tailwind utilities; shared classes (`section`, `heading`) live in
-  `app/globals.css`.
+- Single page: `app/page.tsx` assembles sections; each section is its own component in
+  `app/components/`.
+- Styling uses Tailwind utilities; theme tokens (colors, fonts) live in `app/globals.css`.
+- The chosen design mockup in `docs/design/` is the visual reference.
 - Must stay static-exportable: no API routes, no server actions, no runtime server features.
   Images need `unoptimized` (or a static loader) for export.
 - Fonts: VT323 for headings, nav and accents; a readable sans for body text. Load them with
@@ -40,7 +40,6 @@ Ivan Chiu's personal site, aimed at recruiters and hiring managers. The full pic
 - **Design and theme are taste calls.** Show me a mockup or screenshot before building a section
   out fully.
 - **Never put my phone number or street address on the site.** Email only.
-- **The repo has old uncommitted changes on `main`** (README, app files, package files, a deleted
-  `next.config.ts`). Don't commit, discard or rewrite them without asking me.
-- There are two PostCSS configs (`postcss.config.js` and `.mjs`). Check which one is live before
-  changing styling setup.
+- **The old pre-redesign site is in `git stash`** ("pre-redesign site"). Don't drop or apply it
+  without asking me.
+- Photos and logos in `public/` are mine and untracked; don't delete them.
