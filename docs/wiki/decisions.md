@@ -1,7 +1,7 @@
 # Decisions
 
-The authoritative list is the Decisions section of `docs/vision.md` (only the orchestrator edits
-it). Key ones for implementers:
+The authoritative list is the Decisions section of `docs/vision.md` (edited only with my
+approval). Key ones for implementers:
 
 - **Design:** mockup C "restrained ink" (`docs/design/mockup-c-ink.html`) is the visual reference,
   plus mockup A's moon and torii in the hero (`mockup-a-night.html`). `mockup-b-retro.html` is

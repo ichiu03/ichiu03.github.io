@@ -1,0 +1,18 @@
+commands:
+  prepare: "npm ci"
+  lint: "npm run lint"
+  test: "npm run build && npm test"
+
+# PRs run no checks; the only workflow deploys main to GitHub Pages.
+no_ci: true
+
+document:
+  instructions: |
+    docs/wiki/ is the agents' map of this codebase and owns architecture, module, theme, test and
+    deploy facts. Start from docs/wiki/index.md. Each page says what something is, why it's that
+    way, and which files implement it - pointers, not copies of code.
+    When a change makes a wiki page wrong, update that page. When a change adds a new section,
+    module or subsystem, add a page for it and link it from docs/wiki/index.md.
+    docs/vision.md owns goals and product decisions; never edit it - report a needed change as a
+    finding instead.
+    docs/design/ mockups are reference artifacts; never edit them.

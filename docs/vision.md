@@ -1,6 +1,6 @@
 # Vision
 
-Owned by me and the orchestrator. Agents read it; only the orchestrator edits it, with my approval.
+Owned by me. Agents read it and never edit it without my approval.
 
 ## Why this exists
 I graduated from Boston College in May 2026 (CS) and I'm looking for software engineering roles.

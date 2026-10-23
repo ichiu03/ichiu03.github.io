@@ -27,12 +27,9 @@ Ivan Chiu's personal site, aimed at recruiters and hiring managers. The full pic
   `next/font/google`.
 
 ## Context
-- **Vision:** `docs/vision.md`. Every brief links to it. Only the orchestrator edits it, with my
-  approval.
-- **Wiki:** start at `docs/wiki/index.md` and follow links before searching code. Only the
-  librarian writes it.
-- **Agents:** project specialists live in `.claude/agents/`. Global ones (reviewer, tester,
-  implementer, librarian) fill the gaps.
+- **Vision:** `docs/vision.md` holds the goals and decisions. Never edit it without my approval.
+- **Wiki:** start at `docs/wiki/index.md` and follow links before searching code. A change that
+  makes a wiki page wrong updates that page in the same change.
 - **Content source:** my resume is the source of truth for facts (roles, dates, numbers). Ask me
   for the current version rather than inventing or rounding anything.
 

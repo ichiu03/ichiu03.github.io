@@ -1,7 +1,8 @@
 # Wiki index
 
-Entry point for agents. Start here and follow links before searching code. Maintained by the
-librarian. Each page says what something is, why it's that way, and which files implement it.
+Entry point for agents. Start here and follow links before searching code. Each page says what
+something is, why it's that way, and which files implement it. A change that makes a page wrong
+updates it in the same change.
 
 ## Architecture
 - [Architecture](architecture.md): page assembly, components, nav, breakpoints, static export
